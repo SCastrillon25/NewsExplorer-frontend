@@ -95,4 +95,4 @@ npx eslint .
 
 Desarrollado como parte del programa de formación en desarrollo web de **TripleTen**.
 
-**Proyecto:** News Explorer – Sprint 20
+**Proyecto:** News Explorer – Sprint 20# News Explorer - Frontend

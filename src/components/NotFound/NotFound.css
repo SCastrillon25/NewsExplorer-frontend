@@ -1,0 +1,46 @@
+.notFound {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(245, 246, 247, 1);
+}
+
+.notFound__image {
+    margin: 86px 0 31.5px;
+    width: 82.5px;
+    height: 82.5px;
+}
+
+.notFound__title {
+    font-family: "Roboto Slab";
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 30px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.notFound__subTitle {
+    text-align: center;
+    width: 356px;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: rgba(182, 188, 191, 1);
+    margin-bottom: 88px;
+}
+
+@media (max-width: 1279px)  {
+    .notFound {
+        width: 768px;
+        height: auto;
+    }
+
+    
+}

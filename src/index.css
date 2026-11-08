@@ -1,0 +1,40 @@
+@import url(../dist/vendor/fonts.css);
+@import url(./components/NavBar/NavBar.css);
+@import url(./components/NewsSearch/NewsSearch.css);
+@import url(./components/AboutAuthor/AboutAuthor.css);
+@import url(./components/Main/Main.css);
+@import url(./components/SearchResults/NewsCard/NewsCard.css);
+@import url(./components/Preloader/preloader.css);
+@import url(./components/Main/Header/Header.css);
+@import url(./components/Main/ListNewsSaved/ListNewsSaved.css);
+@import url(./components/Popup/ModalPhoneVist/ModalPhoneVist.css);
+
+
+
+
+
+
+:root {
+    max-width: 1440px;
+    min-width: 320px;
+    margin: 0 auto;
+    position: relative;
+}
+
+body {
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media (max-width: 1279px) {
+    :root {
+        width: 768px;
+        margin: 0 auto;
+    }    
+}
+
+@media (max-width:800px) {
+    :root {
+        width: 320px;
+    }
+}
