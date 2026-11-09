@@ -14,5 +14,5 @@ export default defineConfig({
     },
 },
   },
-  base: "/NewsExplorer"
+  base: "/NewsExplorer-frontend/"
 })

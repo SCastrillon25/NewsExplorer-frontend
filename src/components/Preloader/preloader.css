@@ -4,7 +4,6 @@
 	background-color: rgba(245, 246, 247, 1);
 	position: relative;
 	overflow: hidden;
-	display: none;
 }
 
 .circle-preloader {

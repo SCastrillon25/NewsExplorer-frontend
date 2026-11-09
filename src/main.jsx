@@ -6,7 +6,7 @@ import './index.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter basename="/NewsExplorer">
+    <BrowserRouter basename="/NewsExplorer-frontend">
       <App />  
     </BrowserRouter>
   </StrictMode>,

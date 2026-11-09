@@ -1,4 +1,4 @@
-@import url(../dist/vendor/fonts.css);
+@import url(../../frontend/dist/vendor/fonts.css);
 @import url(./components/NavBar/NavBar.css);
 @import url(./components/NewsSearch/NewsSearch.css);
 @import url(./components/AboutAuthor/AboutAuthor.css);

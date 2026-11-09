@@ -27,7 +27,7 @@
 .navBar__buttons {
     display: flex;
     flex-direction: row;
-    font: "Roboto slab", serif;
+    font: "Roboto Slab", serif;
     margin: 19px 0 0 0;
     padding-right: calc((100% - 1440px) / 2 + 104px);
     align-items: center;
@@ -39,7 +39,7 @@
 .navBar__button-home {
     color: rgba(255, 255, 255, 1);
     margin-right: 42px;
-    font-family: "Roboto slab", sans-serif;
+    font-family: "Roboto Slab", sans-serif;
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
@@ -102,7 +102,7 @@
 .navBar__button-home-darck-style {
     color: rgba(26, 27, 34, 1);
     margin-right: 42px;
-    font-family: "Roboto slab", sans-serif;
+    font-family: "Roboto Slab", sans-serif;
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
