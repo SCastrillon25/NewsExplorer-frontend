@@ -24,13 +24,32 @@ class Api {
         };
     };    
 
-    searchNews(keyword) {
+    searchNews(keyword = "") {
+        const today = new Date();
+        const fromDate = new Date();
+        fromDate.setDate(today.getDate() - 7);
+
+        const formatDate = (date) => {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, "0");
+            const day = String(date.getDate()).padStart(2, "0");
+
+            return `${year}-${month}-${day}`;
+        };
+
         const params = new URLSearchParams({
             access_key: this.key,
             keywords: keyword,
             languages: "en",
             limit: "100",
+            date: `${formatDate(fromDate)},${formatDate(today)}`,
+            sort: "published_desc",
         });
+
+        if (keyword.trim()) {
+            params.set("keywords", keyword);
+        };
+
         return fetch(`${this.URL}/v1/news?${params}`)
             .then(this._checkResponse);
     };
@@ -65,6 +84,7 @@ class Api {
 
 export const api = new Api({
     Url: "https://api.mediastack.com",
-    key: "99b7c7bd33ce8c9431f7fa30b2cebcce",
+    key: import.meta.env.VITE_NEWS_API_KEY,
     backendURL: "http://localhost:3000",
 })
+

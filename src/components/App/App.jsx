@@ -16,7 +16,7 @@ import { NewsContext } from "../../contexts/NewsContext";
 import { ProtectedRoute } from "../ProtectedRoutes/ProtectedRoute";
 import { Protected } from "../../page/Protected/Protected"
 import { Home } from "../../page/Home/Home";
-import * as auth from "../../utils/auth"
+import * as auth from "../../utils/auth";
 import "./App.css";
 
 function App() {
@@ -45,6 +45,8 @@ const handleSearch = (searchKeyword) => {
   setKeyword(searchKeyword);
   setError("");
   setArticles([]);
+  setIsLoading(true);
+  
   {isLogin ? setIsLoading(true) : setIsLogin(false)};
   {isLogin ? navigate("home-save-news") : navigate("News")};
 
@@ -300,6 +302,24 @@ const handleSearch = (searchKeyword) => {
   }, [navigate]);
 
   useEffect(() => {
+    if (location.pathname !== "/" || articles.length > 0) {
+        return
+    } else {
+        api.searchNews() 
+          .then((data) => {
+          setArticles(data.data || []   )
+        })
+        .catch((err) => {
+        console.error("Error al buscar noticias:", err);
+        setError(
+          err?.error?.message ||
+          err?.message ||
+          "No fue posible cargar las noticias."
+        )});
+      };
+  }, [location.pathname]);
+
+  useEffect(() => {
     function handleResize() {
       if(window.innerWidth > 800) {
         setModal(null);
@@ -341,7 +361,23 @@ const handleSearch = (searchKeyword) => {
           path="/" 
           element={ 
             <>
+
               <NewsSearch handleSearch={handleSearch}/>
+              <NewsContext.Provider
+                value={{
+                  register,
+                  isLogin,
+                  keyword,
+                  articles,
+                  isLoading,
+                  error,
+                  isHome,
+                  handleSaveArticle,
+                  handleDeleteArticle
+                }}  
+              >
+                <SearchNewsPage />
+              </NewsContext.Provider>              
               <AboutAuthor aboutAuthor={aboutAuthor}/>
             </>
           }

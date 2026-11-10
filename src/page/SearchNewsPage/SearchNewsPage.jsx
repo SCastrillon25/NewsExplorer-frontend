@@ -7,7 +7,7 @@ import { SearchResults } from "../../components/SearchResults/SearchResults";
 
 function SearchNewsPage() {
 
-const {keyword, isLoading, register, isHome, isLogin, articles, error } = useContext(NewsContext);
+const {keyword, isLoading, register, isHome, isLogin, articles, error, handleSaveArticle, handleDeleteArticle } = useContext(NewsContext);
 
 if (isLoading) {
     return <Preloader />
@@ -21,7 +21,7 @@ if (error) {
     )
 }
 
-if (articles.length === 0) {
+if (!articles || articles.length === 0) {
     return  <NotFound />
 }
 
@@ -33,6 +33,8 @@ if (articles.length === 0) {
                 keyword={keyword}
                 isHome={isHome}
                 isLogin={isLogin}
+                handleSaveArticle={handleSaveArticle}
+                handleDeleteArticle={handleDeleteArticle}
             />
         </> 
      );

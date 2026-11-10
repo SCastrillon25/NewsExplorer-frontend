@@ -1,10 +1,8 @@
-import { useContext , useState} from "react";
-import { NewsContext } from "../../contexts/NewsContext"
+import { useState} from "react";
 import { NewsCard } from "./NewsCard/NewsCard";
 import "./SearchResults.css";
 
-function SearchResults() {
-    const { keyword, register, articles, isHome, handleSaveArticle, handleDeleteArticle, isLogin } = useContext(NewsContext); 
+function SearchResults({ keyword, register, articles, isHome, handleSaveArticle, handleDeleteArticle, isLogin }) {
     const [visibleCards, setVisibleCards] = useState(3);
 
     const handleMoreNews = () => {
@@ -15,11 +13,11 @@ function SearchResults() {
             <div className="searchResults">
             <h1 className="searchResults__title">Search results for: {keyword}</h1>
 
-            {articles.length > 0 && (
+            
                 <ul className="newsCardList">
-                    {articles.slice(0, visibleCards).map((article) => (
+                    {articles.slice(0, visibleCards).map((article, index) => (
                         <NewsCard 
-                            key={article.url}
+                            key={article.url || index}
                             article={article}
                             register={register}
                             isHome={isHome}
@@ -30,7 +28,6 @@ function SearchResults() {
                         />
                     ))}
                 </ul>
-            )}
 
           {articles.length > 3 && (
             <button
