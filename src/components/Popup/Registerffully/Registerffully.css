@@ -1,0 +1,14 @@
+.form {
+    min-height: 82px;
+}
+
+.form__link {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 18px;
+    color: rgba(47, 113, 229, 1);
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin-bottom: 51px;
+    margin-left: 36px;
+}

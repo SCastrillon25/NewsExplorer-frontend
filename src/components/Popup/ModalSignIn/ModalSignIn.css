@@ -1,0 +1,165 @@
+.form__set {
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
+.form__field {
+    display: flex;
+    flex-direction: column;
+    width: 358px;
+    margin-top: 31px;
+    font-weight: 400;
+    font-size: 12px;
+    font-family: "Roboto";
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: rgba(47, 113, 229, 1);
+    position: relative;
+    top: 31px;    
+}
+
+input {
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: rgba(0, 0, 0, 1);
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    height: 33px;
+    margin-top: 0px;
+}
+
+
+
+
+.form__field-margin {
+    margin: 0;
+    padding-top: 31px;
+    margin-bottom: 36px;
+}
+
+
+.form__input {
+    width: 100%;
+}
+
+.form__input-submit {
+    width: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 64px;
+    opacity: 1;
+    border-radius: 100px;
+    border: none;
+    font-family:"Roboto";
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+    color: rgba(182, 188, 191, 1);
+}
+
+.form__container-sign-up {
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+    margin-bottom: 28px;
+    height: 20px;
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+}
+
+.form__or {
+    color: rgba(0, 0, 0, 1);
+    margin: 0;
+}
+
+
+.form__link {
+    border: none;
+    height: 28px;
+    color: rgba(47, 113, 229, 1);
+    background: none;
+    text-decoration: none;
+    margin-left: 6px;
+}
+
+#form__link {
+    margin: 0;
+    margin-left: 6px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+}
+
+
+
+@media (max-width: 800px) {
+    .form {
+        width: 320px;
+        background-color: rgba(255, 255, 255, 1);
+        border-radius: 16px;
+    }
+
+    .form__set {
+        width: 288px;
+    }
+    .form__field {
+        width: 288px;
+    }
+
+    .form__input {
+        width: 288px;
+    }
+
+    .form__field-margin {
+        width: 288px;
+    }
+
+    .form__field-no-margin {
+        margin-top: 30px;
+    }
+
+
+    .form__input-submit {
+        width: 288px;
+        margin-bottom: 16px;
+    }
+
+    .form__link {
+        width: 288px;
+
+    }
+
+    label {
+        width: 288px;
+    }
+
+    .form__container-sign-up {
+        margin-top: 34px;
+    }
+
+    .form__link-sign-up {
+        display: inline;
+        width: auto;
+    }
+}
