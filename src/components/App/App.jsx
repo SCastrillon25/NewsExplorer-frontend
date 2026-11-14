@@ -305,6 +305,7 @@ const handleSearch = (searchKeyword) => {
     if (location.pathname !== "/" || articles.length > 0) {
         return
     } else {
+        setIsLoading(true);
         api.searchNews() 
           .then((data) => {
           setArticles(data.data || []   )
@@ -315,8 +316,12 @@ const handleSearch = (searchKeyword) => {
           err?.error?.message ||
           err?.message ||
           "No fue posible cargar las noticias."
-        )});
+        )})
+          .finally(() => {
+            setIsLoading(false);
+        });
       };
+      
   }, [location.pathname]);
 
   useEffect(() => {

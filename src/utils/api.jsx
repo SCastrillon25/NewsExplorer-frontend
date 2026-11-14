@@ -77,14 +77,14 @@ class Api {
             headers: this._getHeaders(),
         })
         .then(this._checkResponse)
-    };
-
-    
+    };    
 };
 
 export const api = new Api({
     Url: "https://api.mediastack.com",
     key: import.meta.env.VITE_NEWS_API_KEY,
     backendURL: "https://newsexplorer-backend-mgmw.onrender.com",
-})
+});
+
+
 
