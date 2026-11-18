@@ -51,9 +51,35 @@ const handleSearch = (searchKeyword) => {
   {isLogin ? navigate("home-save-news") : navigate("News")};
 
   api.searchNews(searchKeyword)
-    .then((data) => {
-      setArticles(data.data || [])
-    })
+    .then(async (data) => {
+      const validateArticles = (data.data || []).filter((article) => {
+        return (
+          typeof article.image === "string" &&
+          article.image.trim() !== "" &&
+          typeof article.title === "string" &&
+          article.title.trim() !== "" &&
+          typeof article.url === "string" &&
+          article.url.trim() !== ""
+        );
+      });
+
+  const checkedArticles = await Promise.all(
+    validateArticles.map((article) =>
+            new Promise((resolve) => {
+                const image = new Image();
+
+                image.onload = () => resolve(article);
+                image.onerror = () => resolve(null);
+
+                image.src = article.image;
+            })
+        )
+    );
+
+    const validArticles = checkedArticles.filter(Boolean);
+
+    setArticles(validArticles);
+})
     .catch((err) => {
       console.error("Error al buscar noticias:", err);
       setError(
@@ -121,7 +147,6 @@ const handleSearch = (searchKeyword) => {
   };
   
   const handleSaveArticle = async (article) => {
-    console.log("guandando");
     const articleToSave = {
       keyword,
       image: article.image,
@@ -224,15 +249,16 @@ const handleSearch = (searchKeyword) => {
     children: 
       <ModalSignUp 
         handleRegister={handleRegister}
-        handleOpenModal={() => navigate("/signin")} /> 
+        handleOpenModal={() => navigate("/signin")} 
+      /> 
   }
 
   const registerfull = {
-  title: "Registration successfully completed!",
-          children: 
-            <Registerffully 
-              handleOpenModal={() => navigate("/signin")}
-            />  
+    title: "Registration successfully completed!",
+    children: 
+      <Registerffully 
+        handleOpenModal={() => navigate("/signin")}
+      />  
   }
 
   const phoneVistNoLogin = {

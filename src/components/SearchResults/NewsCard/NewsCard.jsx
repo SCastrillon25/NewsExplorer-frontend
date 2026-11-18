@@ -6,7 +6,23 @@ function NewsCard({ article, isHome, isLogin,  handleSaveArticle, handleDeleteAr
     const handleImageError = (event) => {
         event.currentTarget.style.display = "none";
     };
-    
+
+    if (
+        !article.image || 
+        typeof article.image !== "string" || 
+        article.image.trim() === "" || 
+        !article.title || 
+        typeof article.title !== "string" || 
+        article.title.trim() === "" || 
+        !article.description || 
+        typeof article.description !== "string" || 
+        article.description.trim() === "" || 
+        !article.source || 
+        typeof article.source !== "string" || 
+        article.source.trim() === "") {
+        return null;
+    }; 
+
     return ( 
         <li className="newsCard">
             <div className="newsCard__container">
