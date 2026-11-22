@@ -81,9 +81,9 @@ class Api {
 };
 
 export const api = new Api({
-    Url: "https://api.mediastack.com",
+    Url: import.meta.env.VITE_NEWS_API_URL,
     key: import.meta.env.VITE_NEWS_API_KEY,
-    backendURL: "https://newsexplorer-backend-mgmw.onrender.com",
+    backendURL: import.meta.env.VITE_BACKEND_URL,
 });
 
 

@@ -1,4 +1,4 @@
-const BASE_URL = "https://newsexplorer-backend-mgmw.onrender.com";
+const BASE_URL = import.meta.env.VITE_BACKEND_URL;
 
 function checkResponse(res) {
   if (res.ok) {
