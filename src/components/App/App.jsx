@@ -148,7 +148,7 @@ const handleSearch = (searchKeyword) => {
   
   const handleSaveArticle = async (article) => {
     const articleToSave = {
-      keyword,
+      keyword: keyword?.trim() || "General",
       image: article.image,
       title: article.title,
       published_at: article.published_at,
